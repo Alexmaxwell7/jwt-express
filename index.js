@@ -15,7 +15,7 @@ app.post('/max/posts', verifyToken, (req, res) => {
       res.sendStatus(403);
     } else {
       res.json({
-        message: 'Post created...',
+        message: 'Post published',
         authData
       });
     }
