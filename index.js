@@ -1,7 +1,24 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const cookieparser=require('cookie-parser');
 
 const app = express();
+app.use(cookieparser());
+
+let users = { 
+    name : "Maxwell", 
+    Age : "23"
+    } 
+      
+    app.get('/setuser', (req, res)=>{ 
+    res.cookie("userData", users); 
+    res.send('user data added to cookie'); 
+    }); 
+   
+    app.get('/getuser', (req, res)=>{ 
+   
+    res.send(req.cookies); 
+    }); 
 
 app.get('/max',(req,res)=>{
  res.json({
